@@ -56,7 +56,7 @@ ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
             function(humidity) {
                 console.log('Humidity: ' + Date.now() + " " + humidity / 10.0 + ' %RH');
                 humi = humidity / 10.0;
-                firebase.database().ref("Humidity_" + Date.now()).set(humi);
+                firebase.database().ref("plants/01010101/humidity" + Date.now()).set(humi);
                 exit(0);
             },
             function(error) {
