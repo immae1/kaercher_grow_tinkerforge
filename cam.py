@@ -22,4 +22,4 @@ camera.awb_gains = g
 camera.capture('{}.jpg'.format(int(ts)));
 print ("call js script")
 os
-os.system("node base64.js "+str(tsFormat)+'.jpg')
+os.system("node /home/pi/tinkerforgecrap/base64.js "+str(tsFormat)+'.jpg')

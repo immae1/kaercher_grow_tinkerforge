@@ -1,13 +1,13 @@
 var fs = require("fs")
+
 var firebase = require('firebase');
 var Tinkerforge = require('tinkerforge');
 
 var HOST = 'localhost';
 var PORT = 4223;
-var UID = 'xEi'; // Change XYZ to the UID of your Humidity Bricklet
-var humi;
+var UID = 'zUE'; // Change XYZ to the UID of your Humidity Bricklet
 var ipcon = new Tinkerforge.IPConnection(); // Create IP connection
-var h = new Tinkerforge.BrickletHumidity(UID, ipcon); // Create device object
+var m = new Tinkerforge.BrickletMoisture(UID, ipcon); // Create moisu object
 
 ipcon.connect(HOST, PORT,
     function (error) {
@@ -19,19 +19,18 @@ ipcon.connect(HOST, PORT,
 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
     function (connectReason) {
         // Get current humidity (unit is %RH/10)
-        h.getHumidity(
-            function (humidity) {
-                console.log('Humidity: ' + humidity/10.0 + ' %RH');
-                humi=humidity/10.0;
+        m.getMoistureValue(
+            function (moisture) {
+                console.log('moisture: ' + moisture);
                 content = fs.readFileSync('/home/pi/tinkerforgecrap/latest.json', 'utf8');
                 console.log(content);
                 var path="plants/";
                 path+=content;
-                path+="/humidity/";
-                path+=Date.now();
+                path+="/moisture/";
+		path+=Date.now();
                someText = path.replace(/(\r\n|\n|\r)/gm,"");
-                 console.log(someText);
-                firebase.database().ref(someText).set(humi).then(function() {
+		 console.log(someText);
+                firebase.database().ref(someText).set(moisture).then(function() {
                 console.log( "200 FirebaseUpload");
                 process.exit(0);
                 })
@@ -62,3 +61,4 @@ var errorCode = error.code;
 var errorMessage = error.message;
 // ...
 });
+
