@@ -1,14 +1,14 @@
 var firebase = require('firebase');
 // Set the configuration for your app
     var config = {
-        apiKey: "AIzaSyDYJgJcUTH6Ugsi1TGP4xA4Tprk68M2e94",
-        authDomain: "kaerchergrow.firebaseapp.com",
-        databaseURL: "https://kaerchergrow.firebaseio.com",
-        storageBucket: "https://kaerchergrow.appspot.com",
-        messagingSenderId: "900125974783"
+        apiKey: "FIXME",
+        authDomain: "FIXME",
+        databaseURL: "FIXME",
+        storageBucket: "FIXME",
+        messagingSenderId: "FIXME"
     };
 firebase.initializeApp(config);
-firebase.auth().signInWithEmailAndPassword("hans23@weed.de", "iamtheboy").catch(function(error) {
+firebase.auth().signInWithEmailAndPassword("FIXME", "FIXME").catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
