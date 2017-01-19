@@ -10,14 +10,14 @@ var ipcon = new Tinkerforge.IPConnection(); // Create IP connection
 var h = new Tinkerforge.BrickletHumidity(UID, ipcon); // Create device object
 var m = new Tinkerforge.BrickletMoisture(UIDM, ipcon); // Create moisu object
 var config = {
-    apiKey: "AIzaSyDYJgJcUTH6Ugsi1TGP4xA4Tprk68M2e94",
-    authDomain: "kaerchergrow.firebaseapp.com",
-    databaseURL: "https://kaerchergrow.firebaseio.com",
-    storageBucket: "kaerchergrow.appspot.com",
-    messagingSenderId: "900125974783"
+    apiKey: "____",
+    authDomain: "___",
+    databaseURL: "___",
+    storageBucket: "____",
+    messagingSenderId: "____"
 };
 firebase.initializeApp(config);
-firebase.auth().signInWithEmailAndPassword("hans23@weed.de", "iamtheboy").catch(function(error) {
+firebase.auth().signInWithEmailAndPassword("_____", "_____").catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
